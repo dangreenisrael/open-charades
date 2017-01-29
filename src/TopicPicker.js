@@ -5,13 +5,14 @@ class MenuItems extends Component {
   render() {
     const {action, category, categories} = this.props;
     return (
-        <DropdownButton bsStyle="primary" title={category} id="1234">
+        <DropdownButton bsSize="large" bsStyle="primary" title={category} id="CatDropdown">
           {categories.map((category, i)=>{
             const key = category + i.toString();
             const eachAction = () => action(category);
-            return (<MenuItem key={key} eventKey={key} onClick={eachAction}>
+            return (
+                <MenuItem key={key} eventKey={key} onClick={eachAction}>
                   {category}
-                  </MenuItem>
+                </MenuItem>
             )
           })}
       </DropdownButton>
@@ -19,11 +20,4 @@ class MenuItems extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    category: state.category
-  };
-};
-
-// export default connect(mapStateToProps)(MenuItems);
 export default MenuItems;
