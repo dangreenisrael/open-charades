@@ -1,17 +1,21 @@
-import { SET_CATEGORY } from './actions';
+import { SET_PROPERTY } from './actions';
 
 const DEFAULT_STATE = {
-  category: '',
+  category: 'Movies',
+  word: ''
 };
 
-const setCategory = (state, action) => {
-  return Object.assign({}, state, {category: action.category});
+const setProperty = (state, action) => {
+  const {propertyName, propertyValue} = action;
+  let tempObject = {};
+  tempObject[propertyName] = propertyValue;
+  return Object.assign({}, state, tempObject);
 };
 
 const rootReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
-    case SET_CATEGORY:
-      return setCategory(state, action);
+    case SET_PROPERTY:
+      return setProperty(state, action);
     default:
       return state;
   }

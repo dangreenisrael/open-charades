@@ -1,11 +1,12 @@
 {
-  "name": "charades",
+  "name": "open-charades",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "lodash": "^4.17.4",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",

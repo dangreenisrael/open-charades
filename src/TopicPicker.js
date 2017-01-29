@@ -1,20 +1,9 @@
 import React, {Component} from 'react';
 import {DropdownButton, MenuItem} from 'react-bootstrap';
-import { setCategory } from './actionCreators';
-import { connect } from 'react-redux';
 
 class MenuItems extends Component {
-  constructor(props){
-    super(props);
-    this.handleCategoryChange = this.handleCategoryChange.bind(this);
-  }
-  handleCategoryChange (thing) {
-    this.props.dispatch(setCategory(thing));
-  }
   render() {
-    const {categories} = this.props;
-    const category = this.props.category || "Choose Category";
-    const action = this.handleCategoryChange;
+    const {action, category, categories} = this.props;
     return (
         <DropdownButton bsStyle="primary" title={category} id="1234">
           {categories.map((category, i)=>{
@@ -36,4 +25,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(MenuItems);
+// export default connect(mapStateToProps)(MenuItems);
+export default MenuItems;
