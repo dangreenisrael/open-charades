@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import BackButton from './components/BackButton';
+import BackButton from './components/NavigationButtons';
 import TopicChooser from './components/TopicChooser';
 import WordGenerator from './components/WordGenerator';
 import {Jumbotron} from 'react-bootstrap';
