@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import TopicChooser from './TopicChooser';
-import WordGenerator from './WordGenerator';
+import BackButton from './components/BackButton';
+import TopicChooser from './components/TopicChooser';
+import WordGenerator from './components/WordGenerator';
 import {Jumbotron} from 'react-bootstrap';
+
 class App extends Component {
   render() {
     return (
@@ -10,9 +12,15 @@ class App extends Component {
         <Jumbotron>
           <h1>Open Charades</h1>
           <p>This is an open source charades word generator</p>
-          <TopicChooser/>
-          <br/>
-          <WordGenerator/>
+          <div className="spaced">
+            <BackButton/>
+          </div>
+          <div className="spaced">
+            <TopicChooser/>
+          </div>
+          <div className="spaced">
+            <WordGenerator/>
+          </div>
         </Jumbotron>
       </div>
     );

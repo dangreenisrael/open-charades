@@ -1,26 +1,20 @@
 import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
-import {setProperty, generateWord} from './actionCreators';
-import wordDictionary from './words/word-list';
-import _ from 'lodash';
+import { generateWord} from '../redux/actionCreators';
 import {connect} from 'react-redux';
 
 class WordGenerator extends Component {
   constructor(props) {
     super(props);
-    this.props.dispatch(setProperty('wordDictionary', wordDictionary));
     this.updateWord = this.updateWord.bind(this);
-    this.updateWord();
   }
   updateWord () {
     const category = this.props.category;
-    const word = _.sample(wordDictionary[category]);
-    this.props.dispatch(setProperty('word', word));
     this.props.dispatch(generateWord(category));
   }
   render() {
     const updateWord = this.updateWord;
-    const word = this.props.word || "No More Words";
+    const word = this.props.word;
     return (
         <div>
           <Button bsStyle="primary" bsSize="large" onClick={updateWord}>
@@ -35,10 +29,7 @@ class WordGenerator extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    category: state.category,
-    word: state.word
-  };
+  return state.charades.present;
 };
 
 export default connect(mapStateToProps)(WordGenerator);

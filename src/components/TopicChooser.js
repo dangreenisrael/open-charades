@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import TopicPicker from './TopicPicker';
-import {setProperty} from './actionCreators';
+import {setProperty} from '../redux/actionCreators';
 import { connect } from 'react-redux';
-import wordList from './words/word-list';
+import wordList from '../words/word-list';
 
 class TopicChooser extends Component {
   constructor(props){
@@ -13,7 +13,6 @@ class TopicChooser extends Component {
       categories: categories
     };
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
-    this.handleCategoryChange(categories[0]);
   }
   handleCategoryChange (category) {
     this.props.dispatch(setProperty('category', category));
@@ -35,9 +34,7 @@ class TopicChooser extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    category: state.category
-  };
+  return state.charades.present;
 };
 
 export default connect(mapStateToProps)(TopicChooser);
