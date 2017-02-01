@@ -2,11 +2,15 @@ import { SET_PROPERTY, GENERATE_WORD } from '../actions';
 import _ from 'lodash';
 import wordDictionary from '../../words/word-list';
 
+
+
+
 const DEFAULT_STATE = {
   category: 'Easy',
   word: '',
   wordDictionary: wordDictionary
 };
+
 
 const setProperty = (state, action) => {
   const {propertyName, propertyValue} = action;
@@ -22,7 +26,8 @@ const generateWord = (state, action) =>{
   _.remove(dictionary[category], (n)=> {
     return n === word;
   });
-  return Object.assign({}, state, {word: word || "No More Words"});
+  const tempObject = {word: word || "No More Words"};
+  return Object.assign({}, state, tempObject);
 };
 
 

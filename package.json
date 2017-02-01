@@ -13,7 +13,8 @@
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-    "redux-undo": "beta"
+    "redux-undo": "beta",
+    "socket.io-client": "^1.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
